@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>개인정보처리방침 | ROAD-I</title>
+  <title>プライバシーポリシー / Privacy Policy / 개인정보처리방침 | ROAD-I</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet" />
   <style>
     :root {
       --primary:       #0A5C4A;
@@ -26,10 +26,35 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Noto Sans KR', sans-serif;
+      font-family: 'Noto Sans KR', 'Noto Sans JP', sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.85;
+    }
+
+    /* ── 언어 전환 바 ── */
+    .lang-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 8px 32px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 6px;
+    }
+    .lang-btn {
+      padding: 4px 12px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: transparent;
+      font-size: 12px;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .lang-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
     }
 
     /* ══════════════ HEADER ══════════════ */
@@ -80,7 +105,6 @@
       font-size: 13px;
       opacity: .7;
     }
-    /* 배경 도형 */
     header::after {
       content: '';
       position: absolute;
@@ -353,12 +377,30 @@
       .section-body { padding: 18px 16px; }
       .summary-grid { grid-template-columns: 1fr 1fr; }
       .contact-section { padding: 28px 20px; }
+      .lang-bar { padding: 8px 20px; }
     }
+
+    /* 언어별 콘텐츠 전환 */
+    [data-lang] { display: none; }
+    [data-lang].active { display: block; }
+    [data-lang-inline] { display: none; }
+    [data-lang-inline].active { display: inline; }
   </style>
 </head>
 <body>
 
-<!-- ══ HEADER ══ -->
+<!-- ── 언어 전환 바 ── -->
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('ko')">한국어</button>
+  <button class="lang-btn" onclick="setLang('en')">English</button>
+  <button class="lang-btn" onclick="setLang('ja')">日本語</button>
+</div>
+
+<!-- ══════════════════════════════════════
+     한국어 (ko)
+══════════════════════════════════════ -->
+<div data-lang="ko" class="active">
+
 <header>
   <div class="header-inner">
     <div class="header-badge">ROAD-I 개인정보처리방침</div>
@@ -371,60 +413,40 @@
   </div>
 </header>
 
-<!-- ══ TOC ══ -->
 <div class="toc-wrap">
   <div class="toc-inner">
     <div class="toc-label">목차</div>
     <ul class="toc-list">
-      <li><a href="#s1">1. 총칙</a></li>
-      <li><a href="#s2">2. 수집 항목 및 목적</a></li>
-      <li><a href="#s3">3. 보유 기간</a></li>
-      <li><a href="#s4">4. 제3자 제공</a></li>
-      <li><a href="#s5">5. 처리 위탁</a></li>
-      <li><a href="#s6">6. 위치정보 특례</a></li>
-      <li><a href="#s7">7. 이용자 권리</a></li>
-      <li><a href="#s8">8. 보안 조치</a></li>
-      <li><a href="#s9">9. 방침 변경</a></li>
-      <li><a href="#s10">10. 책임자</a></li>
+      <li><a href="#ko-s1">1. 총칙</a></li>
+      <li><a href="#ko-s2">2. 수집 항목 및 목적</a></li>
+      <li><a href="#ko-s3">3. 보유 기간</a></li>
+      <li><a href="#ko-s4">4. 제3자 제공</a></li>
+      <li><a href="#ko-s5">5. 처리 위탁</a></li>
+      <li><a href="#ko-s6">6. 위치정보 특례</a></li>
+      <li><a href="#ko-s7">7. 이용자 권리</a></li>
+      <li><a href="#ko-s8">8. 보안 조치</a></li>
+      <li><a href="#ko-s9">9. 방침 변경</a></li>
+      <li><a href="#ko-s10">10. 책임자</a></li>
     </ul>
   </div>
 </div>
 
-<!-- ══ MAIN ══ -->
 <div class="main">
-
-  <!-- 요약 카드 -->
   <div class="summary-card">
     <div class="summary-card-title">📋 한눈에 보기</div>
     <div style="font-size:14px; color:var(--text-muted);">
       ROAD-I는 <strong>가족 간 위치 공유</strong>를 위한 서비스입니다. 아래 핵심 내용을 확인하세요.
     </div>
     <div class="summary-grid">
-      <div class="summary-item">
-        <div class="summary-item-label">대상 연령</div>
-        만 13세 이상
-      </div>
-      <div class="summary-item">
-        <div class="summary-item-label">수집 정보</div>
-        이메일, 위치정보
-      </div>
-      <div class="summary-item">
-        <div class="summary-item-label">광고·판매</div>
-        없음
-      </div>
-      <div class="summary-item">
-        <div class="summary-item-label">위치 보관</div>
-        실시간 처리 후 삭제
-      </div>
+      <div class="summary-item"><div class="summary-item-label">대상 연령</div>만 13세 이상</div>
+      <div class="summary-item"><div class="summary-item-label">수집 정보</div>이메일, 위치정보</div>
+      <div class="summary-item"><div class="summary-item-label">광고·판매</div>없음</div>
+      <div class="summary-item"><div class="summary-item-label">위치 보관</div>실시간 처리 후 삭제</div>
     </div>
   </div>
 
-  <!-- ── 1. 총칙 ── -->
-  <div class="section" id="s1">
-    <div class="section-head">
-      <div class="section-num">1</div>
-      <div class="section-title">총칙 및 서비스 소개</div>
-    </div>
+  <div class="section" id="ko-s1">
+    <div class="section-head"><div class="section-num">1</div><div class="section-title">총칙 및 서비스 소개</div></div>
     <div class="section-body">
       <p style="font-size:14px; line-height:1.8;">
         임지환(이하 "운영자")이 운영하는 <strong>ROAD-I</strong>(이하 "서비스")는
@@ -434,128 +456,57 @@
       </p>
       <div class="callout yellow mt-16">
         <span class="callout-icon">⚠️</span>
-        <span>본 서비스는 <strong>만 13세 이상</strong>을 대상으로 합니다.
-        만 13세 미만은 서비스를 이용할 수 없습니다.</span>
+        <span>본 서비스는 <strong>만 13세 이상</strong>을 대상으로 합니다. 만 13세 미만은 서비스를 이용할 수 없습니다.</span>
       </div>
     </div>
   </div>
 
-  <!-- ── 2. 수집 항목 및 목적 ── -->
-  <div class="section" id="s2">
-    <div class="section-head">
-      <div class="section-num">2</div>
-      <div class="section-title">수집하는 개인정보 항목 및 이용 목적</div>
-    </div>
+  <div class="section" id="ko-s2">
+    <div class="section-head"><div class="section-num">2</div><div class="section-title">수집하는 개인정보 항목 및 이용 목적</div></div>
     <div class="section-body">
       <div class="table-wrap">
         <table>
-          <thead>
-            <tr>
-              <th>수집 항목</th>
-              <th>이용 목적</th>
-              <th>수집 방법</th>
-              <th>필수 여부</th>
-            </tr>
-          </thead>
+          <thead><tr><th>수집 항목</th><th>이용 목적</th><th>수집 방법</th><th>필수 여부</th></tr></thead>
           <tbody>
-            <tr>
-              <td><strong>이메일 주소</strong><br><span class="text-muted">구글 계정</span></td>
-              <td>본인 인증, 계정 식별</td>
-              <td>구글 소셜 로그인</td>
-              <td>필수</td>
-            </tr>
-            <tr>
-              <td><strong>프로필 이름</strong></td>
-              <td>서비스 내 이름 표시</td>
-              <td>구글 소셜 로그인</td>
-              <td>필수</td>
-            </tr>
-            <tr>
-              <td>
-                <strong>GPS 위치정보</strong><br>
-                <span class="text-muted">정밀 위치, 백그라운드 포함</span>
-              </td>
-              <td>가족 구성원 간 실시간 위치 공유</td>
-              <td>기기 GPS<br><span class="text-muted">(이용자 동의 후)</span></td>
-              <td>선택</td>
-            </tr>
-            <tr>
-              <td><strong>기기 식별자</strong></td>
-              <td>보안, 중복 로그인 방지</td>
-              <td>자동 수집</td>
-              <td>필수</td>
-            </tr>
-            <tr>
-              <td><strong>서비스 이용 기록</strong><br><span class="text-muted">오류 로그, 접속 기록</span></td>
-              <td>서비스 품질 개선</td>
-              <td>자동 수집</td>
-              <td>필수</td>
-            </tr>
+            <tr><td><strong>이메일 주소</strong><br><span class="text-muted">구글 계정</span></td><td>본인 인증, 계정 식별</td><td>구글 소셜 로그인</td><td>필수</td></tr>
+            <tr><td><strong>프로필 이름</strong></td><td>서비스 내 이름 표시</td><td>구글 소셜 로그인</td><td>필수</td></tr>
+            <tr><td><strong>GPS 위치정보</strong><br><span class="text-muted">정밀 위치, 백그라운드 포함</span></td><td>가족 구성원 간 실시간 위치 공유</td><td>기기 GPS<br><span class="text-muted">(이용자 동의 후)</span></td><td>선택</td></tr>
+            <tr><td><strong>기기 식별자</strong></td><td>보안, 중복 로그인 방지</td><td>자동 수집</td><td>필수</td></tr>
+            <tr><td><strong>서비스 이용 기록</strong><br><span class="text-muted">오류 로그, 접속 기록</span></td><td>서비스 품질 개선</td><td>자동 수집</td><td>필수</td></tr>
           </tbody>
         </table>
       </div>
       <div class="callout blue mt-16">
         <span class="callout-icon">ℹ️</span>
-        <span>위치정보 수집은 <strong>선택</strong>입니다. 동의하지 않아도 앱 가입은 가능하나,
-        위치 공유 기능은 동의 후에만 이용할 수 있습니다.</span>
+        <span>위치정보 수집은 <strong>선택</strong>입니다. 동의하지 않아도 앱 가입은 가능하나, 위치 공유 기능은 동의 후에만 이용할 수 있습니다.</span>
       </div>
     </div>
   </div>
 
-  <!-- ── 3. 보유 기간 ── -->
-  <div class="section" id="s3">
-    <div class="section-head">
-      <div class="section-num">3</div>
-      <div class="section-title">개인정보 보유 및 이용 기간</div>
-    </div>
+  <div class="section" id="ko-s3">
+    <div class="section-head"><div class="section-num">3</div><div class="section-title">개인정보 보유 및 이용 기간</div></div>
     <div class="section-body">
       <div class="table-wrap">
         <table>
-          <thead>
-            <tr><th>항목</th><th>보유 기간</th><th>비고</th></tr>
-          </thead>
+          <thead><tr><th>항목</th><th>보유 기간</th><th>비고</th></tr></thead>
           <tbody>
-            <tr>
-              <td>계정 정보 (이메일, 프로필)</td>
-              <td>회원 탈퇴 시까지</td>
-              <td>탈퇴 즉시 파기</td>
-            </tr>
-            <tr>
-              <td>GPS 위치정보</td>
-              <td>실시간 처리 후 즉시 삭제</td>
-              <td>이력 저장 없음</td>
-            </tr>
-            <tr>
-              <td>그룹·채팅 메시지</td>
-              <td>그룹 해산 후 30일</td>
-              <td>—</td>
-            </tr>
-            <tr>
-              <td>서비스 이용 기록</td>
-              <td>1년</td>
-              <td>—</td>
-            </tr>
+            <tr><td>계정 정보 (이메일, 프로필)</td><td>회원 탈퇴 시까지</td><td>탈퇴 즉시 파기</td></tr>
+            <tr><td>GPS 위치정보</td><td>실시간 처리 후 즉시 삭제</td><td>이력 저장 없음</td></tr>
+            <tr><td>그룹·채팅 메시지</td><td>그룹 해산 후 30일</td><td>—</td></tr>
+            <tr><td>서비스 이용 기록</td><td>1년</td><td>—</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="text-muted mt-12">
-        관계 법령에 따라 보존 의무가 있는 경우 해당 기간 보관 후 파기합니다.
-        (전자상거래법: 계약·결제 기록 5년, 소비자 불만 처리 기록 3년)
-      </p>
+      <p class="text-muted mt-12">관계 법령에 따라 보존 의무가 있는 경우 해당 기간 보관 후 파기합니다. (전자상거래법: 계약·결제 기록 5년, 소비자 불만 처리 기록 3년)</p>
     </div>
   </div>
 
-  <!-- ── 4. 제3자 제공 ── -->
-  <div class="section" id="s4">
-    <div class="section-head">
-      <div class="section-num">4</div>
-      <div class="section-title">개인정보 제3자 제공</div>
-    </div>
+  <div class="section" id="ko-s4">
+    <div class="section-head"><div class="section-num">4</div><div class="section-title">개인정보 제3자 제공</div></div>
     <div class="section-body">
       <div class="callout green">
         <span class="callout-icon">✅</span>
-        <span>운영자는 이용자의 개인정보를 <strong>제3자에게 제공하거나 판매하지 않습니다.</strong>
-        광고 네트워크·데이터 브로커 등 어떠한 외부 업체와도 개인정보를 공유하지 않습니다.</span>
+        <span>운영자는 이용자의 개인정보를 <strong>제3자에게 제공하거나 판매하지 않습니다.</strong> 광고 네트워크·데이터 브로커 등 어떠한 외부 업체와도 개인정보를 공유하지 않습니다.</span>
       </div>
       <p class="mt-16" style="font-size:14px; color:var(--text-muted);">다음의 경우는 예외입니다:</p>
       <ul class="policy-list mt-12">
@@ -566,46 +517,24 @@
     </div>
   </div>
 
-  <!-- ── 5. 처리 위탁 ── -->
-  <div class="section" id="s5">
-    <div class="section-head">
-      <div class="section-num">5</div>
-      <div class="section-title">개인정보 처리 위탁</div>
-    </div>
+  <div class="section" id="ko-s5">
+    <div class="section-head"><div class="section-num">5</div><div class="section-title">개인정보 처리 위탁</div></div>
     <div class="section-body">
       <div class="table-wrap">
         <table>
-          <thead>
-            <tr><th>수탁사</th><th>위탁 업무</th><th>보유 기간</th></tr>
-          </thead>
+          <thead><tr><th>수탁사</th><th>위탁 업무</th><th>보유 기간</th></tr></thead>
           <tbody>
-            <tr>
-              <td><strong>Appwrite</strong><br><span class="text-muted">(운영자 개인 서버)</span></td>
-              <td>데이터베이스 저장 및 실시간 처리</td>
-              <td>서비스 이용 기간</td>
-            </tr>
-            <tr>
-              <td><strong>Google LLC</strong></td>
-              <td>소셜 로그인 인증 (OAuth 2.0)</td>
-              <td>서비스 이용 기간</td>
-            </tr>
-            <tr>
-              <td><strong>Google Play</strong></td>
-              <td>앱 배포</td>
-              <td>—</td>
-            </tr>
+            <tr><td><strong>Appwrite</strong><br><span class="text-muted">(운영자 개인 서버)</span></td><td>데이터베이스 저장 및 실시간 처리</td><td>서비스 이용 기간</td></tr>
+            <tr><td><strong>Google LLC</strong></td><td>소셜 로그인 인증 (OAuth 2.0)</td><td>서비스 이용 기간</td></tr>
+            <tr><td><strong>Google Play</strong></td><td>앱 배포</td><td>—</td></tr>
           </tbody>
         </table>
       </div>
     </div>
   </div>
 
-  <!-- ── 6. 위치정보 특례 ── -->
-  <div class="section" id="s6">
-    <div class="section-head">
-      <div class="section-num">6</div>
-      <div class="section-title">위치정보 처리 특례 (위치정보법 제16조)</div>
-    </div>
+  <div class="section" id="ko-s6">
+    <div class="section-head"><div class="section-num">6</div><div class="section-title">위치정보 처리 특례 (위치정보법 제16조)</div></div>
     <div class="section-body">
       <ul class="policy-list">
         <li>위치정보는 이용자의 <strong>명시적 동의</strong> 후에만 수집합니다</li>
@@ -617,26 +546,15 @@
       </ul>
       <div class="callout blue mt-16">
         <span class="callout-icon">📍</span>
-        <div>
-          <strong>백그라운드 위치 수집 안내</strong><br>
-          앱이 백그라운드 상태일 때도 위치를 수집합니다. 이는 앱을 열지 않아도
-          가족이 현재 위치를 확인할 수 있도록 하기 위함입니다.
-          기기 설정 → 앱 권한에서 언제든지 변경할 수 있습니다.
-        </div>
+        <div><strong>백그라운드 위치 수집 안내</strong><br>앱이 백그라운드 상태일 때도 위치를 수집합니다. 이는 앱을 열지 않아도 가족이 현재 위치를 확인할 수 있도록 하기 위함입니다. 기기 설정 → 앱 권한에서 언제든지 변경할 수 있습니다.</div>
       </div>
     </div>
   </div>
 
-  <!-- ── 7. 이용자 권리 ── -->
-  <div class="section" id="s7">
-    <div class="section-head">
-      <div class="section-num">7</div>
-      <div class="section-title">이용자의 권리 및 행사 방법</div>
-    </div>
+  <div class="section" id="ko-s7">
+    <div class="section-head"><div class="section-num">7</div><div class="section-title">이용자의 권리 및 행사 방법</div></div>
     <div class="section-body">
-      <p style="font-size:14px; color:var(--text-muted); margin-bottom:14px;">
-        이용자는 다음 권리를 언제든지 행사할 수 있으며, 요청 후 <strong>7일 이내</strong> 처리해 드립니다.
-      </p>
+      <p style="font-size:14px; color:var(--text-muted); margin-bottom:14px;">이용자는 다음 권리를 언제든지 행사할 수 있으며, 요청 후 <strong>7일 이내</strong> 처리해 드립니다.</p>
       <ul class="policy-list">
         <li><strong>열람권</strong> — 수집된 본인 개인정보 확인 요청</li>
         <li><strong>정정권</strong> — 잘못된 정보의 수정 요청</li>
@@ -647,18 +565,13 @@
       </ul>
       <div class="callout yellow mt-16">
         <span class="callout-icon">⚠️</span>
-        <span>권리 행사는 아래 개인정보 보호책임자 이메일로 요청해 주세요.
-        본인 확인 후 처리합니다.</span>
+        <span>권리 행사는 아래 개인정보 보호책임자 이메일로 요청해 주세요. 본인 확인 후 처리합니다.</span>
       </div>
     </div>
   </div>
 
-  <!-- ── 8. 보안 조치 ── -->
-  <div class="section" id="s8">
-    <div class="section-head">
-      <div class="section-num">8</div>
-      <div class="section-title">개인정보 보호를 위한 기술적·관리적 조치</div>
-    </div>
+  <div class="section" id="ko-s8">
+    <div class="section-head"><div class="section-num">8</div><div class="section-title">개인정보 보호를 위한 기술적·관리적 조치</div></div>
     <div class="section-body">
       <ul class="policy-list">
         <li>HTTPS 암호화 통신으로 데이터 전송 보호</li>
@@ -670,12 +583,8 @@
     </div>
   </div>
 
-  <!-- ── 9. 방침 변경 ── -->
-  <div class="section" id="s9">
-    <div class="section-head">
-      <div class="section-num">9</div>
-      <div class="section-title">개인정보처리방침 변경 안내</div>
-    </div>
+  <div class="section" id="ko-s9">
+    <div class="section-head"><div class="section-num">9</div><div class="section-title">개인정보처리방침 변경 안내</div></div>
     <div class="section-body">
       <ul class="policy-list">
         <li>방침 변경 시 변경일로부터 <strong>최소 7일 전</strong> 앱 내 공지</li>
@@ -685,26 +594,470 @@
     </div>
   </div>
 
-  <!-- ── 10. 책임자 ── -->
-  <div class="contact-section" id="s10">
+  <div class="contact-section" id="ko-s10">
     <h2>개인정보 보호책임자</h2>
     <p>개인정보 관련 문의, 열람·삭제·정정 요청은 아래로 연락해 주세요</p>
-    <a class="contact-email" href="mailto:yimman421@gmail.com">
-      yimman421@gmail.com
-    </a>
+    <a class="contact-email" href="mailto:yimman421@gmail.com">yimman421@gmail.com</a>
     <p class="mt-12" style="font-size:13px; opacity:.65;">임지환 · ROAD-I 운영자 · 7일 이내 답변</p>
-    <div class="contact-sub">
-      개인정보 침해 신고 | 개인정보보호위원회 privacy.go.kr · 국번없이 182<br>
-      한국인터넷진흥원 KISA · 국번없이 118
-    </div>
+    <div class="contact-sub">개인정보 침해 신고 | 개인정보보호위원회 privacy.go.kr · 국번없이 182<br>한국인터넷진흥원 KISA · 국번없이 118</div>
   </div>
-
-</div><!-- /main -->
+</div>
 
 <footer>
   <p><strong>ROAD-I</strong> &nbsp;·&nbsp; 운영자: 임지환</p>
   <p class="mt-12">본 방침은 2025년 3월 1일부터 시행됩니다</p>
 </footer>
 
+</div><!-- /ko -->
+
+
+<!-- ══════════════════════════════════════
+     English (en)
+══════════════════════════════════════ -->
+<div data-lang="en">
+
+<header>
+  <div class="header-inner">
+    <div class="header-badge">ROAD-I Privacy Policy</div>
+    <h1>Transparent Protection<br><span>for Your Family's Safety</span></h1>
+    <div class="header-meta">
+      <span>📅 Effective: March 1, 2025</span>
+      <span>✏️ Last Updated: March 1, 2025</span>
+      <span>👤 Operator: Jihwan Lim</span>
+    </div>
+  </div>
+</header>
+
+<div class="toc-wrap">
+  <div class="toc-inner">
+    <div class="toc-label">Contents</div>
+    <ul class="toc-list">
+      <li><a href="#en-s1">1. Overview</a></li>
+      <li><a href="#en-s2">2. Data Collected</a></li>
+      <li><a href="#en-s3">3. Retention Period</a></li>
+      <li><a href="#en-s4">4. Third-Party Sharing</a></li>
+      <li><a href="#en-s5">5. Processing Delegation</a></li>
+      <li><a href="#en-s6">6. Location Data</a></li>
+      <li><a href="#en-s7">7. User Rights</a></li>
+      <li><a href="#en-s8">8. Security</a></li>
+      <li><a href="#en-s9">9. Policy Changes</a></li>
+      <li><a href="#en-s10">10. Contact</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="main">
+  <div class="summary-card">
+    <div class="summary-card-title">📋 At a Glance</div>
+    <div style="font-size:14px; color:var(--text-muted);">ROAD-I is a <strong>family location sharing</strong> service. Key points below.</div>
+    <div class="summary-grid">
+      <div class="summary-item"><div class="summary-item-label">Age Requirement</div>13 years or older</div>
+      <div class="summary-item"><div class="summary-item-label">Data Collected</div>Email, Location</div>
+      <div class="summary-item"><div class="summary-item-label">Ads / Sales</div>None</div>
+      <div class="summary-item"><div class="summary-item-label">Location Storage</div>Deleted after real-time use</div>
+    </div>
+  </div>
+
+  <div class="section" id="en-s1">
+    <div class="section-head"><div class="section-num">1</div><div class="section-title">Overview & Service Introduction</div></div>
+    <div class="section-body">
+      <p style="font-size:14px; line-height:1.8;">
+        <strong>ROAD-I</strong> (the "Service"), operated by Jihwan Lim (the "Operator"), is a real-time location sharing service for family members. This policy explains how we collect, use, and protect personal information in accordance with applicable privacy laws.
+      </p>
+      <div class="callout yellow mt-16">
+        <span class="callout-icon">⚠️</span>
+        <span>This Service is intended for users <strong>aged 13 and above</strong>. Users under 13 are not permitted to use the Service.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="en-s2">
+    <div class="section-head"><div class="section-num">2</div><div class="section-title">Data Collected & Purpose</div></div>
+    <div class="section-body">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Data</th><th>Purpose</th><th>Method</th><th>Required</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Email Address</strong><br><span class="text-muted">Google Account</span></td><td>Identity verification, account identification</td><td>Google Social Login</td><td>Required</td></tr>
+            <tr><td><strong>Profile Name</strong></td><td>Display name within the service</td><td>Google Social Login</td><td>Required</td></tr>
+            <tr><td><strong>GPS Location</strong><br><span class="text-muted">Precise location, incl. background</span></td><td>Real-time location sharing among family members</td><td>Device GPS<br><span class="text-muted">(with consent)</span></td><td>Optional</td></tr>
+            <tr><td><strong>Device Identifier</strong></td><td>Security, duplicate login prevention</td><td>Auto-collected</td><td>Required</td></tr>
+            <tr><td><strong>Usage Records</strong><br><span class="text-muted">Error logs, access logs</span></td><td>Service quality improvement</td><td>Auto-collected</td><td>Required</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout blue mt-16">
+        <span class="callout-icon">ℹ️</span>
+        <span>Location data collection is <strong>optional</strong>. You can sign up without consent, but location sharing requires it.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="en-s3">
+    <div class="section-head"><div class="section-num">3</div><div class="section-title">Retention Period</div></div>
+    <div class="section-body">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Data</th><th>Retention</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>Account info (email, profile)</td><td>Until account deletion</td><td>Deleted immediately upon withdrawal</td></tr>
+            <tr><td>GPS location data</td><td>Deleted immediately after real-time processing</td><td>No history stored</td></tr>
+            <tr><td>Group / chat messages</td><td>30 days after group dissolution</td><td>—</td></tr>
+            <tr><td>Service usage records</td><td>1 year</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-muted mt-12">Data required to be retained by law will be kept for the legally mandated period before deletion.</p>
+    </div>
+  </div>
+
+  <div class="section" id="en-s4">
+    <div class="section-head"><div class="section-num">4</div><div class="section-title">Third-Party Data Sharing</div></div>
+    <div class="section-body">
+      <div class="callout green">
+        <span class="callout-icon">✅</span>
+        <span>The Operator does <strong>not sell or share personal data with third parties</strong>. We do not share information with advertising networks, data brokers, or any external entities.</span>
+      </div>
+      <p class="mt-16" style="font-size:14px; color:var(--text-muted);">Exceptions include:</p>
+      <ul class="policy-list mt-12">
+        <li>When prior consent is obtained from the user</li>
+        <li>When required by law or regulation</li>
+        <li>When requested by law enforcement through lawful procedures</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section" id="en-s5">
+    <div class="section-head"><div class="section-num">5</div><div class="section-title">Processing Delegation</div></div>
+    <div class="section-body">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Processor</th><th>Task</th><th>Retention</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Appwrite</strong><br><span class="text-muted">(Operator's private server)</span></td><td>Database storage and real-time processing</td><td>During service use</td></tr>
+            <tr><td><strong>Google LLC</strong></td><td>Social login authentication (OAuth 2.0)</td><td>During service use</td></tr>
+            <tr><td><strong>Google Play</strong></td><td>App distribution</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="en-s6">
+    <div class="section-head"><div class="section-num">6</div><div class="section-title">Location Data Special Provisions</div></div>
+    <div class="section-body">
+      <ul class="policy-list">
+        <li>Location data is collected only with the user's <strong>explicit consent</strong></li>
+        <li>Location data is used solely for <strong>family location sharing</strong></li>
+        <li>Location data is not used for marketing, advertising, or analytics</li>
+        <li>Users can stop location sharing at any time in the app settings</li>
+        <li>Location data is deleted immediately upon family disconnection or account deletion</li>
+        <li>Consent for location collection can be withdrawn at any time</li>
+      </ul>
+      <div class="callout blue mt-16">
+        <span class="callout-icon">📍</span>
+        <div><strong>Background Location Notice</strong><br>The app collects location data even when running in the background, so family members can check your location without opening the app. You can change this in Device Settings → App Permissions.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="en-s7">
+    <div class="section-head"><div class="section-num">7</div><div class="section-title">User Rights</div></div>
+    <div class="section-body">
+      <p style="font-size:14px; color:var(--text-muted); margin-bottom:14px;">You may exercise any of the following rights at any time. Requests will be processed within <strong>7 business days</strong>.</p>
+      <ul class="policy-list">
+        <li><strong>Right of Access</strong> — Request to view your collected personal data</li>
+        <li><strong>Right of Rectification</strong> — Request correction of inaccurate information</li>
+        <li><strong>Right to Erasure</strong> — Request deletion of personal data (including account deletion)</li>
+        <li><strong>Right to Restrict Processing</strong> — Request suspension of processing for specific purposes</li>
+        <li><strong>Withdraw Location Consent</strong> — Can be done via app settings or email immediately</li>
+        <li><strong>Right to Object</strong> — Object to the processing of your personal data</li>
+      </ul>
+      <div class="callout yellow mt-16">
+        <span class="callout-icon">⚠️</span>
+        <span>To exercise your rights, please contact the Privacy Officer via email below. Identity verification will be required.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="en-s8">
+    <div class="section-head"><div class="section-num">8</div><div class="section-title">Security Measures</div></div>
+    <div class="section-body">
+      <ul class="policy-list">
+        <li>Data transmission protected via HTTPS encryption</li>
+        <li>Appwrite server-side encrypted storage</li>
+        <li>Access control: only you and explicitly connected family members can view location data</li>
+        <li>Minimum data collection principle applied</li>
+        <li>No advertising SDKs or third-party tracking tools used</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section" id="en-s9">
+    <div class="section-head"><div class="section-num">9</div><div class="section-title">Policy Updates</div></div>
+    <div class="section-body">
+      <ul class="policy-list">
+        <li>Policy changes will be announced in-app <strong>at least 7 days</strong> before taking effect</li>
+        <li>Significant changes (data types, purpose, third-party sharing) will be announced <strong>30 days</strong> in advance</li>
+        <li>Updated policies take effect from the stated effective date</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="contact-section" id="en-s10">
+    <h2>Privacy Officer</h2>
+    <p>For inquiries, data access, deletion, or correction requests, please contact us</p>
+    <a class="contact-email" href="mailto:yimman421@gmail.com">yimman421@gmail.com</a>
+    <p class="mt-12" style="font-size:13px; opacity:.65;">Jihwan Lim · ROAD-I Operator · Response within 7 days</p>
+    <div class="contact-sub">Privacy complaints | Korea Personal Information Protection Commission privacy.go.kr · 182<br>Korea Internet &amp; Security Agency (KISA) · 118</div>
+  </div>
+</div>
+
+<footer>
+  <p><strong>ROAD-I</strong> &nbsp;·&nbsp; Operator: Jihwan Lim</p>
+  <p class="mt-12">This policy is effective from March 1, 2025</p>
+</footer>
+
+</div><!-- /en -->
+
+
+<!-- ══════════════════════════════════════
+     日本語 (ja)
+══════════════════════════════════════ -->
+<div data-lang="ja">
+
+<header>
+  <div class="header-inner">
+    <div class="header-badge">ROAD-I プライバシーポリシー</div>
+    <h1>家族の安全のための<br><span>透明な情報保護</span></h1>
+    <div class="header-meta">
+      <span>📅 施行日: 2025年3月1日</span>
+      <span>✏️ 最終更新: 2025年3月1日</span>
+      <span>👤 運営者: Jihwan Lim</span>
+    </div>
+  </div>
+</header>
+
+<div class="toc-wrap">
+  <div class="toc-inner">
+    <div class="toc-label">目次</div>
+    <ul class="toc-list">
+      <li><a href="#ja-s1">1. 総則</a></li>
+      <li><a href="#ja-s2">2. 収集項目・目的</a></li>
+      <li><a href="#ja-s3">3. 保有期間</a></li>
+      <li><a href="#ja-s4">4. 第三者提供</a></li>
+      <li><a href="#ja-s5">5. 処理委託</a></li>
+      <li><a href="#ja-s6">6. 位置情報特則</a></li>
+      <li><a href="#ja-s7">7. ユーザーの権利</a></li>
+      <li><a href="#ja-s8">8. セキュリティ</a></li>
+      <li><a href="#ja-s9">9. ポリシー変更</a></li>
+      <li><a href="#ja-s10">10. お問い合わせ</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="main">
+  <div class="summary-card">
+    <div class="summary-card-title">📋 概要</div>
+    <div style="font-size:14px; color:var(--text-muted);">ROAD-I は<strong>家族間の位置情報共有</strong>サービスです。以下の要点をご確認ください。</div>
+    <div class="summary-grid">
+      <div class="summary-item"><div class="summary-item-label">対象年齢</div>13歳以上</div>
+      <div class="summary-item"><div class="summary-item-label">収集情報</div>メール、位置情報</div>
+      <div class="summary-item"><div class="summary-item-label">広告・販売</div>なし</div>
+      <div class="summary-item"><div class="summary-item-label">位置情報保管</div>リアルタイム処理後に削除</div>
+    </div>
+  </div>
+
+  <div class="section" id="ja-s1">
+    <div class="section-head"><div class="section-num">1</div><div class="section-title">総則およびサービス概要</div></div>
+    <div class="section-body">
+      <p style="font-size:14px; line-height:1.8;">
+        Jihwan Lim（以下「運営者」）が運営する<strong>ROAD-I</strong>（以下「サービス」）は、家族間でリアルタイムに位置情報を共有するサービスです。本ポリシーは、個人情報保護に関する法令に基づき、ユーザーの個人情報の収集・利用・保護に関する事項をご説明するものです。
+      </p>
+      <div class="callout yellow mt-16">
+        <span class="callout-icon">⚠️</span>
+        <span>本サービスは<strong>13歳以上</strong>を対象としています。13歳未満の方はご利用いただけません。</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="ja-s2">
+    <div class="section-head"><div class="section-num">2</div><div class="section-title">収集する個人情報の項目および利用目的</div></div>
+    <div class="section-body">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>収集項目</th><th>利用目的</th><th>収集方法</th><th>必須/任意</th></tr></thead>
+          <tbody>
+            <tr><td><strong>メールアドレス</strong><br><span class="text-muted">Googleアカウント</span></td><td>本人確認、アカウント識別</td><td>Googleソーシャルログイン</td><td>必須</td></tr>
+            <tr><td><strong>プロフィール名</strong></td><td>サービス内での名前表示</td><td>Googleソーシャルログイン</td><td>必須</td></tr>
+            <tr><td><strong>GPS位置情報</strong><br><span class="text-muted">精密位置、バックグラウンド含む</span></td><td>家族間のリアルタイム位置共有</td><td>デバイスGPS<br><span class="text-muted">（同意後）</span></td><td>任意</td></tr>
+            <tr><td><strong>デバイス識別子</strong></td><td>セキュリティ、重複ログイン防止</td><td>自動収集</td><td>必須</td></tr>
+            <tr><td><strong>サービス利用記録</strong><br><span class="text-muted">エラーログ、アクセス記録</span></td><td>サービス品質改善</td><td>自動収集</td><td>必須</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout blue mt-16">
+        <span class="callout-icon">ℹ️</span>
+        <span>位置情報の収集は<strong>任意</strong>です。同意なしでもアプリに登録できますが、位置共有機能は同意後にのみご利用いただけます。</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="ja-s3">
+    <div class="section-head"><div class="section-num">3</div><div class="section-title">個人情報の保有および利用期間</div></div>
+    <div class="section-body">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>保有期間</th><th>備考</th></tr></thead>
+          <tbody>
+            <tr><td>アカウント情報（メール、プロフィール）</td><td>退会まで</td><td>退会後即時削除</td></tr>
+            <tr><td>GPS位置情報</td><td>リアルタイム処理後即時削除</td><td>履歴保存なし</td></tr>
+            <tr><td>グループ・チャットメッセージ</td><td>グループ解散後30日</td><td>—</td></tr>
+            <tr><td>サービス利用記録</td><td>1年間</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-muted mt-12">法令により保存義務がある場合は、当該期間保管後に削除します。</p>
+    </div>
+  </div>
+
+  <div class="section" id="ja-s4">
+    <div class="section-head"><div class="section-num">4</div><div class="section-title">第三者への個人情報提供</div></div>
+    <div class="section-body">
+      <div class="callout green">
+        <span class="callout-icon">✅</span>
+        <span>運営者はユーザーの個人情報を<strong>第三者に提供・販売しません。</strong>広告ネットワーク・データブローカー等、いかなる外部業者とも個人情報を共有しません。</span>
+      </div>
+      <p class="mt-16" style="font-size:14px; color:var(--text-muted);">ただし、以下の場合は例外です：</p>
+      <ul class="policy-list mt-12">
+        <li>ユーザーの事前同意を得た場合</li>
+        <li>法令に基づく提出義務がある場合</li>
+        <li>捜査機関から適法な手続きによる要請があった場合</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section" id="ja-s5">
+    <div class="section-head"><div class="section-num">5</div><div class="section-title">個人情報処理の委託</div></div>
+    <div class="section-body">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>委託先</th><th>委託業務</th><th>保有期間</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Appwrite</strong><br><span class="text-muted">（運営者プライベートサーバー）</span></td><td>データベース保存およびリアルタイム処理</td><td>サービス利用期間中</td></tr>
+            <tr><td><strong>Google LLC</strong></td><td>ソーシャルログイン認証（OAuth 2.0）</td><td>サービス利用期間中</td></tr>
+            <tr><td><strong>Google Play</strong></td><td>アプリ配布</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="ja-s6">
+    <div class="section-head"><div class="section-num">6</div><div class="section-title">位置情報処理の特則</div></div>
+    <div class="section-body">
+      <ul class="policy-list">
+        <li>位置情報はユーザーの<strong>明示的な同意</strong>を得た後にのみ収集します</li>
+        <li>位置情報は<strong>家族間の位置共有</strong>目的にのみ使用します</li>
+        <li>位置情報をマーケティング・広告・統計目的に利用しません</li>
+        <li>ユーザーはアプリ設定からいつでも位置共有を停止できます</li>
+        <li>家族の連携解除またはアカウント削除時に位置情報を即時削除します</li>
+        <li>位置情報の収集・利用・提供への同意はいつでも撤回できます</li>
+      </ul>
+      <div class="callout blue mt-16">
+        <span class="callout-icon">📍</span>
+        <div><strong>バックグラウンド位置情報収集について</strong><br>アプリがバックグラウンドの状態でも位置情報を収集します。これは、アプリを開かなくても家族が現在地を確認できるようにするためです。デバイス設定 → アプリの権限からいつでも変更できます。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="ja-s7">
+    <div class="section-head"><div class="section-num">7</div><div class="section-title">ユーザーの権利および行使方法</div></div>
+    <div class="section-body">
+      <p style="font-size:14px; color:var(--text-muted); margin-bottom:14px;">以下の権利をいつでも行使できます。ご要望は<strong>7日以内</strong>に対応いたします。</p>
+      <ul class="policy-list">
+        <li><strong>アクセス権</strong> — 収集された個人情報の確認を要請する権利</li>
+        <li><strong>訂正権</strong> — 不正確な情報の修正を要請する権利</li>
+        <li><strong>削除権（忘れられる権利）</strong> — 個人情報の削除を要請する権利（退会を含む）</li>
+        <li><strong>処理停止権</strong> — 特定目的の処理停止を要請する権利</li>
+        <li><strong>位置情報同意の撤回</strong> — アプリ設定またはメールで即時申請可能</li>
+        <li><strong>異議申し立て権</strong> — 個人情報の処理に対して異議を申し立てる権利</li>
+      </ul>
+      <div class="callout yellow mt-16">
+        <span class="callout-icon">⚠️</span>
+        <span>権利の行使は、下記の個人情報保護責任者のメールアドレスまでご連絡ください。本人確認後に対応いたします。</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="ja-s8">
+    <div class="section-head"><div class="section-num">8</div><div class="section-title">個人情報保護のための技術的・管理的措置</div></div>
+    <div class="section-body">
+      <ul class="policy-list">
+        <li>HTTPS暗号化通信によるデータ送受信の保護</li>
+        <li>Appwriteサーバーによる暗号化保存</li>
+        <li>アクセス制御：本人および明示的に連携した家族のみが位置情報を閲覧可能</li>
+        <li>不要な個人情報を収集しない最小収集の原則を適用</li>
+        <li>広告SDK・第三者トラッキングツールの不使用</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section" id="ja-s9">
+    <div class="section-head"><div class="section-num">9</div><div class="section-title">プライバシーポリシーの変更</div></div>
+    <div class="section-body">
+      <ul class="policy-list">
+        <li>ポリシー変更時は、変更日の<strong>少なくとも7日前</strong>にアプリ内でお知らせします</li>
+        <li>収集項目・目的・第三者提供などの重要な変更は<strong>30日前</strong>に事前告知します</li>
+        <li>変更されたポリシーは施行日より適用されます</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="contact-section" id="ja-s10">
+    <h2>個人情報保護責任者</h2>
+    <p>個人情報に関するお問い合わせ、閲覧・削除・訂正のご要望は以下までご連絡ください</p>
+    <a class="contact-email" href="mailto:yimman421@gmail.com">yimman421@gmail.com</a>
+    <p class="mt-12" style="font-size:13px; opacity:.65;">Jihwan Lim · ROAD-I 運営者 · 7日以内にご返答いたします</p>
+    <div class="contact-sub">個人情報侵害の申告 | 個人情報保護委員会 privacy.go.kr · 182<br>韓国インターネット振興院 KISA · 118</div>
+  </div>
+</div>
+
+<footer>
+  <p><strong>ROAD-I</strong> &nbsp;·&nbsp; 運営者: Jihwan Lim</p>
+  <p class="mt-12">本ポリシーは2025年3月1日より施行されます</p>
+</footer>
+
+</div><!-- /ja -->
+
+
+<script>
+  // 언어 전환 로직
+  const allLangDivs = document.querySelectorAll('[data-lang]');
+  const allLangBtns = document.querySelectorAll('.lang-btn');
+
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    allLangDivs.forEach(el => {
+      el.classList.toggle('active', el.getAttribute('data-lang') === lang);
+    });
+    allLangBtns.forEach(btn => {
+      const map = { ko: '한국어', en: 'English', ja: '日本語' };
+      btn.classList.toggle('active', btn.textContent.trim() === map[lang]);
+    });
+    // URL 파라미터 업데이트 (히스토리 유지)
+    const url = new URL(window.location);
+    url.searchParams.set('lang', lang);
+    history.replaceState(null, '', url);
+  }
+
+  // URL 파라미터로 초기 언어 설정
+  (function () {
+    const p = new URLSearchParams(window.location.search).get('lang');
+    if (p === 'en' || p === 'ja') {
+      setLang(p);
+    }
+  })();
+</script>
 </body>
 </html>
